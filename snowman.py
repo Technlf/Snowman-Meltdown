@@ -76,6 +76,13 @@ def play_game():
     else:
         print(f"\nThe snowman is melted! The word was: '{secret_word}'")
 
+    # Ask user to play again
+    again = input("Would you like to play again? (y/n): ").lower()
+    if again == "y":
+        play_game()
+    else:
+        print("Thank you for playing!")
+
 
 
 if __name__ == "__main__":
