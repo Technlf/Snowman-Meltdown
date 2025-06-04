@@ -18,12 +18,21 @@ def play_game():
     print("Welcome to Snowman Meltdown!")
     print("Secret word selected: " + secret_word)  # for testing, later remove this line
 
+    # mask for the hidden word
     displayed_word = ["_" for _ in secret_word]
 
-    while True:
-        # For now, simply prompt the user once:
+    while wrong_guesses < max_wrong_guesses and "_" in displayed_word:
+        print("\nCurrent word: ", " ".join(displayed_word)))
         guess = input("Guess a letter: ").lower()
-        print("You guessed:", guess)
+
+        if len(guess) != 1 or not guess.isalpha():
+            print("Please enter a single letter.")
+            continue
+
+        
+
+
+
 
 
 
