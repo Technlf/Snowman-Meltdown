@@ -12,16 +12,15 @@ WORDS = ["python", "git", "github", "snowman", "meltdown"]
 
 def display_game_state(wrong_guesses, secret_word, guessed_letters):
     """Draw the snowman and show the 'smelting' state of the game."""
-
+    print(f"\n{30 * "-"}")
     print(ar.STAGES[wrong_guesses])
-
     displayed_word = [letter if letter in guessed_letters
                       else "_" for letter in secret_word]
     print("Word: " + " ".join(displayed_word))
 
     print("Guessed letters: ", " ".join(guessed_letters))
     print(f"Mistakes: {wrong_guesses}/{len(ar.STAGES) - 1}")
-
+    print(f"\n{30 * "-"}")
 
 def get_random_word():
     """Selects a random word from the list."""
