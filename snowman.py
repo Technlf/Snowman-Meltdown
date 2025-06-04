@@ -3,6 +3,36 @@ import random
 # List of secret words
 WORDS = ["python", "git", "github", "snowman", "meltdown"]
 
+# Snowman ASCII Art stages
+STAGES = [
+     # Stage 0: Full snowman
+     """
+      ___  
+     /___\\ 
+     (o o) 
+     ( : ) 
+     ( : ) 
+     """,
+     # Stage 1: Bottom part starts melting
+     """
+      ___  
+     /___\\ 
+     (o o) 
+     ( : ) 
+     """,
+     # Stage 2: Only the head remains
+     """
+      ___  
+     /___\\ 
+     (o o) 
+     """,
+     # Stage 3: Snowman completely melted
+     """
+      ___  
+     /___\\ 
+     """
+ ]
+
 
 def get_random_word():
     """Selects a random word from the list."""
@@ -14,7 +44,7 @@ def play_game():
     check for right or wrong input."""
     secret_word = get_random_word()
     guessed_letters = []
-    max_wrong_guesses = 6
+    max_wrong_guesses = 4
     wrong_guesses = 0
 
     print("Welcome to Snowman Meltdown!")
@@ -41,20 +71,24 @@ def play_game():
 
         # Check for wrong or right letter input
         if guess in secret_word:
-            print(f"Good job! {guess} is in the word.")
+            print(f"Good job! '{guess}' is in the word.")
             for item, letter in enumerate(secret_word):
                 if letter == guess:
                     displayed_word[item] = guess
         else:
             wrong_guesses += 1
-            print(f"Sorry, {guess} is not in the word.")
+            print(f"Sorry, '{guess}' is not in the word.")
             print(f"Snowman is melting... ")
 
     # Finish the game
     if "_" not in displayed_word:
-        print(f"\nCongrats! You guessed the word: {secret_word}")
+        print(f"\nCongrats! You guessed the word: '{secret_word}'")
     else:
-        print(f"\nThe snowman is melted! The word was: {secret_word}")
+        print(f"\nThe snowman is melted! The word was: '{secret_word}'")
+
+
+def display_game_state(wrong_guesses, secret_word, guessed_letters):
+    pass
 
 
 
