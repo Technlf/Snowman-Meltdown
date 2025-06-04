@@ -19,7 +19,7 @@ def display_game_state(wrong_guesses, secret_word, guessed_letters):
     print("Word: " + " ".join(displayed_word))
 
     print("Guessed letters: ", " ".join(guessed_letters))
-    print(f"Mistakes: {wrong_guesses}/{len(ar.STAGES) - 1}")
+    print(f"Mistakes: {wrong_guesses}/{len(ar.STAGES)}")
     print(f"\n{30 * "-"}")
 
 def get_random_word():
@@ -32,7 +32,7 @@ def play_game():
     check for right or wrong input."""
     secret_word = get_random_word()
     guessed_letters = []
-    max_wrong_guesses = 4
+    max_wrong_guesses = 6
     wrong_guesses = 0
 
     print("Welcome to Snowman Meltdown!")
