@@ -22,14 +22,23 @@ def play_game():
     displayed_word = ["_" for _ in secret_word]
 
     while wrong_guesses < max_wrong_guesses and "_" in displayed_word:
-        print("\nCurrent word: ", " ".join(displayed_word)))
+        print("\nCurrent word: ", " ".join(displayed_word))
         guess = input("Guess a letter: ").lower()
 
         if len(guess) != 1 or not guess.isalpha():
             print("Please enter a single letter.")
             continue
 
-        
+        if guess in guessed_letters:
+            print("You already guessed that letter.")
+            continue
+
+        guessed_letters.append(guess)
+
+        if guess in secret_word:
+            print(f"Good job! {guess} is in the word.")
+
+
 
 
 
