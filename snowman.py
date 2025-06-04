@@ -34,6 +34,19 @@ STAGES = [
  ]
 
 
+def display_game_state(wrong_guesses, secret_word, guessed_letters):
+    """Draw the snowman and show the 'smelting' state of the game."""
+
+    print(STAGES[wrong_guesses])
+
+    displayed_word = [letter if letter in guessed_letters
+                      else "_" for letter in secret_word]
+    print("Word: " + " ".join(displayed_word))
+
+    print("Guessed letters: ", " ".join(guessed_letters))
+    print(f"Mistakes: {wrong_guesses}/{len(STAGES) - 1}")
+
+
 def get_random_word():
     """Selects a random word from the list."""
     return WORDS[random.randint(0, len(WORDS) - 1)]
@@ -54,7 +67,9 @@ def play_game():
     displayed_word = ["_" for _ in secret_word]
 
     while wrong_guesses < max_wrong_guesses and "_" in displayed_word:
-        print("\nCurrent word: ", " ".join(displayed_word))
+        print("\n---- Game State ----")
+        display_game_state(wrong_guesses, secret_word, guessed_letters)
+
         guess = input("Guess a letter: ").lower()
 
         # Check for empty input
@@ -87,8 +102,6 @@ def play_game():
         print(f"\nThe snowman is melted! The word was: '{secret_word}'")
 
 
-def display_game_state(wrong_guesses, secret_word, guessed_letters):
-    pass
 
 
 
