@@ -10,6 +10,8 @@ def get_random_word():
 
 
 def play_game():
+    """The game loop to start, ask for letter,
+    check for right or wrong input."""
     secret_word = get_random_word()
     guessed_letters = []
     max_wrong_guesses = 6
@@ -25,16 +27,19 @@ def play_game():
         print("\nCurrent word: ", " ".join(displayed_word))
         guess = input("Guess a letter: ").lower()
 
+        # Check for empty input
         if len(guess) != 1 or not guess.isalpha():
             print("Please enter a single letter.")
             continue
 
+        # Check for same letter input
         if guess in guessed_letters:
             print("You already guessed that letter.")
             continue
 
         guessed_letters.append(guess)
 
+        # Check for wrong or right letter input
         if guess in secret_word:
             print(f"Good job! {guess} is in the word.")
             for item, letter in enumerate(secret_word):
@@ -45,6 +50,11 @@ def play_game():
             print(f"Sorry, {guess} is not in the word.")
             print(f"Snowman is melting... ")
 
+    # Finish the game
+    if "_" not in displayed_word:
+        print(f"\nCongrats! You guessed the word: {secret_word}")
+    else:
+        print(f"\nThe snowman is melted! The word was: {secret_word}")
 
 
 
