@@ -37,6 +37,15 @@ def play_game():
 
         if guess in secret_word:
             print(f"Good job! {guess} is in the word.")
+            for item, letter in enumerate(secret_word):
+                if letter == guess:
+                    displayed_word[item] = guess
+        else:
+            wrong_guesses += 1
+            print(f"Sorry, {guess} is not in the word.")
+            print(f"Snowman is melting... ")
+
+
 
 
 
