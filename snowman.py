@@ -1,20 +1,24 @@
-"""
-DRAW Snowman & empty word UI
-SELECT a random word from word list
-SET number of wrong guesses to 0
-SET max wrong guesses
+import random
 
-WHILE word not guessed AND wrhong guesses < max:
-    ASK user for a letter
-    IF letter in word:
-        REVAL letter in word UI
-    ELSE:
-        INCREMENT wrong guesses
-        REMOVE part of the snowman
+# List of secret words
+WORDS = ["python", "git", "github", "snowman", "meltdown"]
 
-IF word guessed:
-    PRINT "You win!"
-ELSE:
-    PRINT "You lose!" and reval the word
-"""
 
+def get_random_word():
+    """Selects a random word from the list."""
+    return WORDS[random.randint(0, len(WORDS) - 1)]
+
+
+def play_game():
+    secret_word = get_random_word()
+    print("Welcome to Snowman Meltdown!")
+    print("Secret word selected: " + secret_word)  # for testing, later remove this line
+
+    # TODO: Build your game loop here.
+    # For now, simply prompt the user once:
+    guess = input("Guess a letter: ").lower()
+    print("You guessed:", guess)
+
+
+if __name__ == "__main__":
+    play_game()
