@@ -11,13 +11,20 @@ def get_random_word():
 
 def play_game():
     secret_word = get_random_word()
+    guessed_letters = []
+    max_wrong_guesses = 6
+    wrong_guesses = 0
+
     print("Welcome to Snowman Meltdown!")
     print("Secret word selected: " + secret_word)  # for testing, later remove this line
 
-    # TODO: Build your game loop here.
-    # For now, simply prompt the user once:
-    guess = input("Guess a letter: ").lower()
-    print("You guessed:", guess)
+    displayed_word = ["_" for _ in secret_word]
+
+    while True:
+        # For now, simply prompt the user once:
+        guess = input("Guess a letter: ").lower()
+        print("You guessed:", guess)
+
 
 
 if __name__ == "__main__":
